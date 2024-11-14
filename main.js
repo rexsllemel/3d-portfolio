@@ -28,20 +28,20 @@ let clipNames = [
 ];
 let projects = [
   {
-    image: 'textures/project-spaze.webp',
-    url: 'https://www.spaze.social/',
+    image: 'textures/project1.png',
+    url: 'https://pulangui.faithcloud.net/',
   },
   {
-    image: 'textures/project-myteachers.jpg',
-    url: 'https://myteachers.com.au/',
+    image: 'textures/project1.png',
+    url: 'https://pulangui.faithcloud.net/',
   },
   {
-    image: 'textures/project-wholesale.jpg',
-    url: 'https://wholesale.com.np/',
+    image: 'textures/project1.png',
+    url: 'https://pulangui.faithcloud.net/',
   },
   {
-    image: 'textures/project-pelotero.jpg',
-    url: 'https://www.peloterosenlaweb.com/',
+    image: 'textures/project1.png',
+    url: 'https://pulangui.faithcloud.net/',
   },
 ];
 let aboutCameraPos = {
@@ -125,7 +125,7 @@ gltfLoader.load(
 
     // load video
     const video = document.createElement('video');
-    video.src = 'textures/arcane.mp4';
+    video.src = 'textures/kez.mp4';
     video.muted = true;
     video.playsInline = true;
     video.autoplay = true;
@@ -187,7 +187,7 @@ gltfLoader.load(
 
         // adding texture to book
         const bookTexture = new THREE.TextureLoader().load(
-          'textures/book-inner.jpg'
+          'textures/book.jpg'
         );
         bookTexture.flipY = false;
         child.material = new THREE.MeshStandardMaterial({
@@ -242,22 +242,58 @@ roomLight.shadow.camera.far = 2.5;
 // roomLight.shadow.camera.fov = 100;
 roomLight.shadow.bias = -0.002;
 scene.add(roomLight);
+
+
+const fanLights = [
+  new THREE.PointLight(0xffffff, 30, 0.2),
+  new THREE.PointLight(0xffffff, 30, 0.12),
+  new THREE.PointLight(0xffffff, 30, 0.2),
+  new THREE.PointLight(0xffffff, 30, 0.2),
+  new THREE.PointLight(0xffffff, 30, 0.05)
+];
+
+// Set initial positions
+fanLights[0].position.set(0, 0.29, -0.29);
+fanLights[1].position.set(-0.15, 0.29, -0.29);
+fanLights[2].position.set(0.21, 0.29, -0.29);
+fanLights[3].position.set(0.21, 0.19, -0.29);
+fanLights[4].position.set(0.21, 0.08, -0.29);
+
+// Add the lights to the scene
+fanLights.forEach(light => scene.add(light));
+
+// Function to animate the lights
+function animateLights(time) {
+  const hueSpeed = 0.0001; // Adjust speed of color change
+
+  fanLights.forEach((light, index) => {
+      const hue = (time * hueSpeed + index * 0.1) % 1; // Offset each light's hue for a rainbow effect
+      light.color.setHSL(hue, 1, 0.5); // Full saturation, medium lightness
+  });
+
+  requestAnimationFrame(animateLights);
+}
+
+// Start the animation
+animateLights(0);
+
+
 // add light for pc fans
-const fanLight1 = new THREE.PointLight(0xff0000, 30, 0.2);
-const fanLight2 = new THREE.PointLight(0x00ff00, 30, 0.12);
-const fanLight3 = new THREE.PointLight(0x00ff00, 30, 0.2);
-const fanLight4 = new THREE.PointLight(0x00ff00, 30, 0.2);
-const fanLight5 = new THREE.PointLight(0x00ff00, 30, 0.05);
-fanLight1.position.set(0, 0.29, -0.29);
-fanLight2.position.set(-0.15, 0.29, -0.29);
-fanLight3.position.set(0.21, 0.29, -0.29);
-fanLight4.position.set(0.21, 0.19, -0.29);
-fanLight5.position.set(0.21, 0.08, -0.29);
-scene.add(fanLight1);
-scene.add(fanLight2);
-scene.add(fanLight3);
-scene.add(fanLight4);
-scene.add(fanLight5);
+// const fanLight1 = new THREE.PointLight(0xff0000, 30, 0.2);
+// const fanLight2 = new THREE.PointLight(0x00ff00, 30, 0.12);
+// const fanLight3 = new THREE.PointLight(0x00ff00, 30, 0.2);
+// const fanLight4 = new THREE.PointLight(0x00ff00, 30, 0.2);
+// const fanLight5 = new THREE.PointLight(0x00ff00, 30, 0.05);
+// fanLight1.position.set(0, 0.29, -0.29);
+// fanLight2.position.set(-0.15, 0.29, -0.29);
+// fanLight3.position.set(0.21, 0.29, -0.29);
+// fanLight4.position.set(0.21, 0.19, -0.29);
+// fanLight5.position.set(0.21, 0.08, -0.29);
+// scene.add(fanLight1);
+// scene.add(fanLight2);
+// scene.add(fanLight3);
+// scene.add(fanLight4);
+// scene.add(fanLight5);
 // add point light for text on wall
 const pointLight1 = new THREE.PointLight(0xff0000, 0, 1.1);
 const pointLight2 = new THREE.PointLight(0xff0000, 0, 1.1);
@@ -317,9 +353,9 @@ function loadIntroText() {
       new THREE.MeshPhongMaterial({ color: 0x171f27, flatShading: true }),
       new THREE.MeshPhongMaterial({ color: 0xffffff }),
     ];
-    const titleGeo = new TextGeometry('SUSHIL THAPA', {
+    const titleGeo = new TextGeometry('REXSOVEL MELGAR', {
       font: font,
-      size: 0.08,
+      size: 0.07,
       height: 0.01,
     });
     titleText = new THREE.Mesh(titleGeo, textMaterials);
@@ -334,7 +370,7 @@ function loadIntroText() {
       new THREE.MeshPhongMaterial({ color: 0xffffff }),
     ];
     const subTitleGeo = new TextGeometry(
-      'Web Designer / Developer / Content Creator',
+      'Web Stack Dev / Faithcloud / Network Administrator',
       {
         font: font,
         size: 0.018,
