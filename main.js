@@ -28,20 +28,20 @@ let clipNames = [
 ];
 let projects = [
   {
-    image: 'textures/project1.png',
+    image: 'textures/pulangui.png',
     url: 'https://pulangui.faithcloud.net/',
   },
   {
-    image: 'textures/project1.png',
-    url: 'https://pulangui.faithcloud.net/',
+    image: 'textures/bphmaramag.png',
+    url: 'https://bphmaramag.faithcloud.net/',
   },
   {
-    image: 'textures/project1.png',
-    url: 'https://pulangui.faithcloud.net/',
+    image: 'textures/toplaymovies.png',
+    url: 'https://toplaymovies.site/',
   },
   {
-    image: 'textures/project1.png',
-    url: 'https://pulangui.faithcloud.net/',
+    image: 'textures/portfolio.png',
+    url: 'https://portfolio.faithcloud.net/',
   },
 ];
 let aboutCameraPos = {
