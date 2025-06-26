@@ -130,7 +130,6 @@ gltfLoader.load(
     video.playsInline = true;
     video.autoplay = true;
     video.loop = true;
-    video.flipX = true;
 
     // create video texture
     const videoTexture = new THREE.VideoTexture(video);
@@ -138,6 +137,8 @@ gltfLoader.load(
     videoTexture.magFilter = THREE.NearestFilter;
     videoTexture.generateMipmaps = false;
     videoTexture.encoding = THREE.sRGBEncoding;
+    videoTexture.repeat.x = -1;
+    videoTexture.offset.x = 1;
 
     room.scene.children.forEach((child) => {
       // disable shadow by wall
