@@ -125,7 +125,7 @@ gltfLoader.load(
 
     // load video
     const video = document.createElement('video');
-    video.src = 'textures/valorant.mp4';
+    video.src = 'textures/kez-dota.mp4';
     video.muted = true;
     video.playsInline = true;
     video.autoplay = true;
