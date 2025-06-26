@@ -126,11 +126,11 @@ gltfLoader.load(
     // load video
     const video = document.createElement('video');
     video.src = 'textures/valorant.mp4';
-    video.muted = false;
+    video.muted = true;
     video.playsInline = true;
     video.autoplay = true;
     video.loop = true;
-    video.flipY = false;
+    video.flipY = true;
 
     // create video texture
     const videoTexture = new THREE.VideoTexture(video);
