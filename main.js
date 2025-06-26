@@ -126,7 +126,7 @@ gltfLoader.load(
     // load video
     const video = document.createElement('video');
     video.src = 'textures/valorant.mp4';
-    video.muted = true;
+    video.muted = false;
     video.playsInline = true;
     video.autoplay = true;
     video.loop = true;
