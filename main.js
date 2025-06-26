@@ -258,6 +258,7 @@ fanLights[1].position.set(-0.15, 0.29, -0.29);
 fanLights[2].position.set(0.21, 0.29, -0.29);
 fanLights[3].position.set(0.21, 0.19, -0.29);
 fanLights[4].position.set(0.21, 0.08, -0.29);
+// fanLights[5].position.set(0.21, 0.08, -0.29);
 
 // Add the lights to the scene
 fanLights.forEach(light => scene.add(light));
@@ -283,12 +284,12 @@ animateLights(0);
 // const fanLight2 = new THREE.PointLight(0x00ff00, 30, 0.12);
 // const fanLight3 = new THREE.PointLight(0x00ff00, 30, 0.2);
 // const fanLight4 = new THREE.PointLight(0x00ff00, 30, 0.2);
-// const fanLight5 = new THREE.PointLight(0x00ff00, 30, 0.05);
+const fanLight5 = new THREE.PointLight(0x00ff00, 30, 0.05);
 // fanLight1.position.set(0, 0.29, -0.29);
 // fanLight2.position.set(-0.15, 0.29, -0.29);
 // fanLight3.position.set(0.21, 0.29, -0.29);
 // fanLight4.position.set(0.21, 0.19, -0.29);
-// fanLight5.position.set(0.21, 0.08, -0.29);
+fanLight5.position.set(0.21, 0.08, -0.29);
 // scene.add(fanLight1);
 // scene.add(fanLight2);
 // scene.add(fanLight3);
@@ -370,7 +371,7 @@ function loadIntroText() {
       new THREE.MeshPhongMaterial({ color: 0xffffff }),
     ];
     const subTitleGeo = new TextGeometry(
-      'Web Stack Dev / Faithcloud / Network Administrator',
+      'Web Developer / Network Admin / PC Tech / IoT Builder',
       {
         font: font,
         size: 0.018,
