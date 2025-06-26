@@ -125,12 +125,12 @@ gltfLoader.load(
 
     // load video
     const video = document.createElement('video');
-    video.src = 'textures/valorant.mp4';
+    video.src = 'textures/kez-dota.mp4';
     video.muted = true;
     video.playsInline = true;
     video.autoplay = true;
     video.loop = true;
-    video.flipY = true;
+    video.flipY = false;
 
     // create video texture
     const videoTexture = new THREE.VideoTexture(video);
