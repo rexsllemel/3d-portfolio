@@ -130,6 +130,7 @@ gltfLoader.load(
     video.playsInline = true;
     video.autoplay = true;
     video.loop = true;
+    video.flipY = false;
 
     // create video texture
     const videoTexture = new THREE.VideoTexture(video);
